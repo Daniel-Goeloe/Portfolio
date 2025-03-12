@@ -11,7 +11,7 @@ function Hero() {
         </div>
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start mt-10" data-aos="fade-up" data-aos-delay="500">
-            <h2 className="pb-2 text-4xl tracking-tighter lg:text-8xl">Daniel</h2>
+            <h2 className="pb-2 text-4xl tracking-tighter lg:text-8xl">Daniel Goeloe Guzman</h2>
             <span className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-3xl tracking-tight text-transparent">
               IT SPECIALIST/SALES SERVICE
             </span>
