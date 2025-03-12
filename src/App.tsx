@@ -20,7 +20,7 @@ function App() {
     const handleScroll = () => {
       setTimeout(() => {
         AOS.refresh();  // Forza il refresh di AOS ogni volta che l'utente scorre
-      }, 100); // Piccola pausa per garantire che il DOM sia aggiornato
+      }, 50); // Piccola pausa per garantire che il DOM sia aggiornato
     };
 
     // Aggiungi l'event listener per il scroll

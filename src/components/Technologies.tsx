@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaDatabase, FaCode, FaShippingFast, FaHeadphones, FaJira } from 'react-icons/fa';
 
 function Technologies() {
