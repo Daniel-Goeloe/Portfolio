@@ -1,27 +1,82 @@
+import { motion } from 'framer-motion';
 import profilePic from "../assets/Daniel.webp";
 
 function Hero() {
   return (
     <div className="pb-4 lg:mb-36">
-      <div className="flex flex-wrap lg:flex-row-reverse" data-aos="fade-left" data-aos-duration="1000">
+      <div className="flex flex-wrap lg:flex-row-reverse">
         <div className="w-full lg:w-1/2">
-          <div className="flex justify-center lg:p-8" data-aos="fade-up" data-aos-delay="300">
-            <img src={profilePic} alt="Daniel" className="border border-stone-900 rounded-3xl transition-transform transform hover:scale-105" />
+          <div className="flex justify-center lg:p-8">
+            {/* Motion per l'immagine */}
+            <motion.img
+              src={profilePic}
+              alt="Daniel"
+              className="border border-stone-900 rounded-3xl transition-transform transform hover:scale-105"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            />
           </div>
         </div>
         <div className="w-full lg:w-1/2">
-          <div className="flex flex-col items-center lg:items-start mt-10" data-aos="fade-up" data-aos-delay="500">
-            <h2 className="pb-2 text-4xl tracking-tighter lg:text-8xl">Daniel Goeloe Guzman</h2>
-            <span className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-3xl tracking-tight text-transparent">
+          <div className="flex flex-col items-center lg:items-start mt-10">
+            {/* Motion per il nome con una transizione più dolce */}
+            <motion.h2
+              className="pb-2 text-4xl lg:text-8xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              whileHover={{
+                scale: 1.05,    // Aumento lieve della dimensione
+                color: "rgba(255, 255, 255, 1)",   // Cambia in bianco per il passaggio
+                transition: { duration: 0.3 },  // Transizione più leggera
+              }}
+            >
+              Daniel Goeloe Guzman
+            </motion.h2>
+            {/* Motion per la posizione lavorativa */}
+            <motion.span
+              className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-3xl tracking-tight text-transparent"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              whileHover={{
+                scale: 1.05,    // Aumento lieve della dimensione
+                color: "rgba(255, 255, 255, 1)",   // Cambia in bianco per il passaggio
+                transition: { duration: 0.3 },  // Transizione più leggera
+              }}
+            >
               IT SPECIALIST/SALES SERVICE
-            </span>
-            <p className="my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tighter">
-              I am a highly curious and ambitious individual looking to grow in the IT field. I have attended one of the top schools in the country for IT and I aim to continue my journey in this sector. I excel at problem-solving in the workplace, always striving to find every possible solution.
-              My main goal is to leverage my knowledge across various aspects of technology and to find a domain that simultaneously captures my enthusiasm and helps me enhance my skills.
-            </p>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" download className="bg-white rounded-full p-4 text-sm text-stone-800 mb-10">
+            </motion.span>
+            {/* Descrizione con un'animazione più forte */}
+            <motion.p
+              className="my-2 max-w-lg py-6 text-xl leading-relaxed tracking-tighter"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              // Animazione di hover sulla descrizione
+              whileHover={{
+                scale: 1.15,    // Aumenta la dimensione del testo in modo significativo
+                color: "rgba(255, 255, 255, 1)",  // Cambia colore per evidenziare
+                y: -10,         // Muove il testo verso l'alto
+                opacity: 1,     // Aumenta l'opacità
+                transition: { duration: 0.3 },  // Anima l'effetto velocemente
+              }}
+            >
+              I am a highly curious and ambitious individual looking to grow in the IT field and Service Sales...
+            </motion.p>
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="bg-white rounded-full p-4 text-sm text-stone-800 mb-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+            >
               Download Resume
-            </a>
+            </motion.a>
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
-import React from 'react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { motion } from 'framer-motion';  // Importa framer-motion per animazioni
 import logo from "../assets/LogoTest.webp";
 
 function Navbar() {
@@ -8,16 +7,16 @@ function Navbar() {
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center">
           <a href="/" aria-label="Home">
-            <img src={logo} className="mx-2 w-24 sm:w-32 md:w-36" alt="Logo" />
-          </a>
-        </div>
-
-        <div className="flex items-center gap-4 text-lg sm:text-xl">
-          <a href="https://www.linkedin.com/in/daniel-goeloe-guzman-026b8a245/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <FaLinkedin size={20} className="text-blue-700 hover:text-blue-500" />
-          </a>
-          <a href="https://github.com/Daniel-Goeloe/Portfolio" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <FaGithub size={20} className="text-white hover:text-gray-300" />
+            {/* Animazione del logo con framer-motion */}
+            <motion.img 
+              src={logo} 
+              alt="Logo"
+              className="mx-2 w-24 sm:w-32 md:w-36 filter invert" 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              transition={{ duration: 1, ease: "easeInOut" }}
+              whileHover={{ scale: 1.1, rotate: 5 }}  // Aggiungi effetto hover (zoom e rotazione)
+            />
           </a>
         </div>
       </div>

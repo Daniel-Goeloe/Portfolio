@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import Navbar from './components/Navabar';
 import Hero from './components/Hero';
@@ -6,32 +6,11 @@ import Technologies from './components/Technologies';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Importa il CSS per AOS
+// Non serve importare AOS se non lo usi
+// import AOS from 'aos';
+// import 'aos/dist/aos.css'; // Non necessario
 
-function App() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Durata animazione
-      once: true,     // Esegui solo una volta quando l'elemento entra nel viewport
-    });
-
-    // Funzione per gestire il refresh di AOS al cambio di scroll
-    const handleScroll = () => {
-      setTimeout(() => {
-        AOS.refresh();  // Forza il refresh di AOS ogni volta che l'utente scorre
-      }, 50); // Piccola pausa per garantire che il DOM sia aggiornato
-    };
-
-    // Aggiungi l'event listener per il scroll
-    window.addEventListener('scroll', handleScroll);
-
-    // Pulizia: rimuovi l'event listener quando il componente viene smontato
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []); // [] per eseguire solo una volta all'inizio
-
+const App: React.FC = () => {
   return (
     <div className="overflow-x-hidden text-stone-300 antialiased">
       <div className="fixed inset-0 -z-10">

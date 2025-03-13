@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import project1 from '../projects/icon1.webp'; 
 import project2 from '../projects/icon2.webp';
 import project3 from '../projects/icon3.webp';
@@ -42,26 +43,37 @@ function Projects() {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
             className="flex flex-col items-center bg-gray-800 p-5 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl hover:border-4 hover:border-blue-500"
             data-aos="fade-up"
             data-aos-delay={`${index * 100}`}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }} // Durata ridotta per velocizzare
+            whileHover={{
+              scale: 1.1,
+              rotate: 5,
+              boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+              backgroundColor: "#2D3748",
+              transition: { duration: 0.2 }, // Transizione hover velocizzata
+            }}
           >
             <img src={project.img} alt={project.title} className="w-full h-48 object-cover rounded-lg mb-5" />
             <h3 className="text-2xl text-white mb-3">{project.title}</h3>
             <p className="text-white mb-4">{project.description}</p>
             <div className="flex flex-wrap justify-center gap-2">
               {project.skills.map((skill, i) => (
-                <span
+                <motion.span
                   key={i}
                   className="bg-blue-500 text-white py-1 px-3 rounded-lg text-sm transition-transform transform hover:scale-110 hover:bg-blue-400"
+                  whileHover={{ scale: 1.2, backgroundColor: '#2B6CB0' }}
                 >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -1,55 +1,64 @@
 import { FaDatabase, FaCode, FaShippingFast, FaHeadphones, FaJira } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 function Technologies() {
+  const techItems = [
+    { icon: <FaCode size={60} />, name: 'T-SQL', color: 'text-blue-500', hoverColor: 'hover:border-blue-500' },
+    { icon: <FaDatabase size={60} />, name: 'Database', color: 'text-green-500', hoverColor: 'hover:border-green-500' },
+    { icon: <FaJira size={60} />, name: 'Jira', color: 'text-blue-700', hoverColor: 'hover:border-blue-700' },
+    { icon: <FaShippingFast size={60} />, name: 'Sales Shipping', color: 'text-orange-500', hoverColor: 'hover:border-orange-500' },
+    { icon: <FaHeadphones size={60} />, name: 'Customer Service', color: 'text-gray-400', hoverColor: 'hover:border-gray-400' },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-800 text-white">
-      <div className="container mx-auto px-4 py-12 max-w-[17%]"> {/* Ridotto il contenitore esterno ancora di più */}
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8" data-aos="fade-up">
+      <div className="container mx-auto px-4 py-12 max-w-screen-lg">
+        {/* Titolo migliorato con ombra e gradiente animato */}
+        <h1
+          className="text-5xl sm:text-6xl font-extrabold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/50 tracking-wider"
+          data-aos="fade-up"
+          style={{ letterSpacing: '2px' }}
+        >
           Technologies and Skills
         </h1>
-        <p className="text-lg text-center mb-4" data-aos="fade-up">
-          Here are some of the technologies and skills I work with.
+
+        {/* Descrizione migliorata */}
+        <p
+          className="text-xl sm:text-2xl text-center mb-16 max-w-3xl mx-auto leading-relaxed text-gray-300"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Here are some of the technologies and skills I worked with over the years. I’m always seeking to improve my skills, and these tools allow me to build and innovate with confidence.
         </p>
-        <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
-          {/* T-SQL */}
-          <div className="text-center tech-icon" data-aos="fade-up" data-aos-delay="100">
-            <div className="border-2 border-transparent hover:border-blue-500 p-4 rounded-xl transition-all duration-300 transform hover:scale-110 hover:rotate-[15deg] hover:translate-x-[20px] hover:skew-x-[10deg]">
-              <FaCode size={60} className="text-blue-500 mb-4" />
-            </div>
-            <p>T-SQL</p>
-          </div>
 
-          {/* Database */}
-          <div className="text-center tech-icon" data-aos="fade-up" data-aos-delay="200">
-            <div className="border-2 border-transparent hover:border-green-500 p-4 rounded-xl transition-all duration-300 transform hover:scale-125 hover:translate-y-[-15px] hover:rotate-[10deg]">
-              <FaDatabase size={60} className="text-green-500 mb-4" />
-            </div>
-            <p>Database</p>
-          </div>
-
-          {/* Jira */}
-          <div className="text-center tech-icon" data-aos="fade-up" data-aos-delay="300">
-            <div className="border-2 border-transparent hover:border-blue-700 p-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:translate-x-[-20px] hover:skew-y-[15deg]">
-              <FaJira size={60} className="text-blue-700 mb-4" />
-            </div>
-            <p>Jira</p>
-          </div>
-
-          {/* Sales Shipping */}
-          <div className="text-center tech-icon" data-aos="fade-up" data-aos-delay="400">
-            <div className="border-2 border-transparent hover:border-orange-500 p-4 rounded-xl transition-all duration-300 transform hover:scale-115 hover:translate-y-[10px] hover:rotate-[-10deg]">
-              <FaShippingFast size={60} className="text-orange-500 mb-4" />
-            </div>
-            <p>Sales Shipping</p>
-          </div>
-
-          {/* Customer Service */}
-          <div className="text-center tech-icon" data-aos="fade-up" data-aos-delay="500">
-            <div className="border-2 border-transparent hover:border-gray-400 p-4 rounded-xl transition-all duration-300 transform hover:scale-120 hover:translate-x-[10px] hover:skew-x-[-10deg]">
-              <FaHeadphones size={60} className="text-gray-400 mb-4" />
-            </div>
-            <p>Customer Service</p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+          {techItems.map((item, index) => (
+            <motion.div
+              key={index}
+              className="text-center tech-icon"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <motion.div
+                className={`border-2 border-transparent p-6 rounded-xl transition-all duration-300 transform ${item.hoverColor}`}
+                whileHover={{ scale: 1.15, rotate: 15, translateY: -10 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className={`text-4xl ${item.color}`}>{item.icon}</div>
+              </motion.div>
+              <motion.p
+                className="mt-4 text-lg font-semibold text-white"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                {item.name}
+              </motion.p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
